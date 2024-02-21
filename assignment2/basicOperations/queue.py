@@ -21,7 +21,6 @@ class OperationsQueue():
     def lengthQueue(self):
         return self.pointerBack + self.pointerFront + 1
 
-\\\///////////
     def putBackOfQueue(self, element):
 
         elementNew = [element]

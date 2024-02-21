@@ -1,1 +1,1 @@
-from .basicOperations import Operations
+from .basicOperations import OperationsQueue, OperationsStack, Operations

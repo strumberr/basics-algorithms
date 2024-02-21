@@ -98,12 +98,39 @@ class OperationsStack():
 
         return result, self.stack
     
+    def duplicateTop(self):
+        if self.notEnoughElements(): return
+        
+        a = self.pop()
+
+        self.push(a)
+        self.push(a)
+
+        return a
+    
+    def powerElementTop(self, power):
+        if self.notEnoughElements(): return
+        
+        # # duplicate the element x times to take the power, becuase we can't use the ** operator
+
+        self.duplicateTop()
+        
+        for _ in range(power):
+            self.multiplyTopTwo()
+
+        return self.stack
+    
+            
+        
+    
+    
 
 
 operations_stack = OperationsStack([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 
-print(f"multiplyTopTwo: {operations_stack.multiplyTopTwo()[0]}, stack: {operations_stack.multiplyTopTwo()[1]}")
-print(f"swapped: {operations_stack.swp()}")
-print(f"addTopTwo sum: {operations_stack.addTopTwo()[0]}, stack: {operations_stack.addTopTwo()[1]}")
-print(f"divideTopTwo sum: {operations_stack.divideTopTwo()[0]}, stack: {operations_stack.divideTopTwo()[1]}")
-print(f"modulusTopTwo modulus: {operations_stack.modulusTopTwo()[0]}, stack: {operations_stack.modulusTopTwo()[1]}")
+# print(f"multiplyTopTwo: {operations_stack.multiplyTopTwo()[0]}, stack: {operations_stack.multiplyTopTwo()[1]}")
+# print(f"swapped: {operations_stack.swp()}")
+# print(f"addTopTwo sum: {operations_stack.addTopTwo()[0]}, stack: {operations_stack.addTopTwo()[1]}")
+# print(f"divideTopTwo sum: {operations_stack.divideTopTwo()[0]}, stack: {operations_stack.divideTopTwo()[1]}")
+# print(f"modulusTopTwo modulus: {operations_stack.modulusTopTwo()[0]}, stack: {operations_stack.modulusTopTwo()[1]}")
+print(f"powerElementTop: {operations_stack.powerElementTop(3)}")
